@@ -27,25 +27,6 @@ To use the model for gender detection, follow these steps:
 5. Use the model to predict the gender.
 6. The output will be displayed as either 'Male' or 'Female'.
 
-## Code Snippet
-```python
-import tensorflow as tf
-import numpy as np
-import cv2
-
-# Reading and resizing the image
-image = cv2.imread('path_to_image')
-image = cv2.resize(image, (150, 150))
-image = np.array(image)
-image = image.reshape(1, 150, 150, 3)
-
-# Loading the saved model
-model = tf.keras.models.load_model('model.h5')
-
-# Predicting the gender
-dict = {1: 'Male', 0: 'Female'}
-out_arr = model.predict(image)[0]
-print(f'Predicted class is: {dict[np.argmax(out_arr)]}')
 
 ## Results and Discussion
 The model performs gender classification with an accuracy of [insert accuracy]. While effective, it's important to note that gender is a complex and multi-dimensional concept that may not be fully captured by binary classifications.
